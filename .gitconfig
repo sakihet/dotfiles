@@ -1,0 +1,23 @@
+[include]
+	path = ~/.gitconfig.local
+[core]
+	excludesfile = ~/.gitignore
+[color]
+	ui = auto
+[alias]
+	s = status -s -b
+	st = status
+	a = add
+	ap = add -p
+	br = branch
+	bra = branch -a
+	df = diff --color-words
+	dc = diff --cached
+	ci = commit
+	cim = commit -m
+	co = checkout
+	l = log --graph --decorate --oneline --stat
+	lp = log -p
+	pl = pull
+[push]
+	default = simple
