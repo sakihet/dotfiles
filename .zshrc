@@ -13,3 +13,5 @@ alias here='open .'
 alias chrome='open -a google\ chrome'
 alias firefox='open -a firefox'
 alias safari='open -a safari'
+
+PROMPT='%n@%m %~ %# '
