@@ -1,6 +1,12 @@
 export TERM='xterm-256color'
 export EDITOR=emacs
 
+## coreutils
+if [ -s $(brew --prefix coreutils) ]; then
+    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+    MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+fi
+
 alias g=git
 alias l='ls -al'
 alias s=ssh
