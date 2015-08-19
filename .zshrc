@@ -1,3 +1,6 @@
+export TERM='xterm-256color'
+export EDITOR=emacs
+
 alias g=git
 alias l='ls -al'
 alias s=ssh
