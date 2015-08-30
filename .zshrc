@@ -8,7 +8,8 @@ if [ -s $(brew --prefix coreutils) ]; then
 fi
 
 alias g=git
-alias l='ls -al'
+alias l='ls -lF --color'
+alias la='ls -laF --color'
 alias s=ssh
 alias v=vim
 alias x=exit
