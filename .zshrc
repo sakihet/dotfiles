@@ -25,3 +25,11 @@ zstyle ':vcs_info:' check-for-changes true
 precmd () { vcs_info }
 setopt prompt_subst
 PROMPT='%n@%m %~${vcs_info_msg_0_} %# '
+
+## history
+setopt extended_history
+setopt share_history
+setopt inc_append_history
+HISTSIZE=100000 # on memory
+SAVEHIST=100000 # on file
+HISTFILE=~/.histfile
