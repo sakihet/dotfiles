@@ -7,6 +7,10 @@ if [ -s $(brew --prefix coreutils) ]; then
     MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
 
+## rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+
 alias g=git
 alias l='ls -lF --color'
 alias la='ls -laF --color'
