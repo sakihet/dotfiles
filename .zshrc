@@ -11,6 +11,9 @@ fi
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
+## pyenv
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
 alias g=git
 alias l='ls -lF --color'
 alias la='ls -laF --color'
