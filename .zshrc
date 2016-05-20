@@ -43,3 +43,5 @@ setopt inc_append_history
 HISTSIZE=100000 # on memory
 SAVEHIST=100000 # on file
 HISTFILE=~/.histfile
+function history-all { history -E 1 }
+alias hag='history-all | grep'
