@@ -1,3 +1,4 @@
+## ENV
 export TERM='xterm-256color'
 export EDITOR=emacs
 
@@ -28,8 +29,10 @@ alias chrome='open -a google\ chrome'
 alias firefox='open -a firefox'
 alias safari='open -a safari'
 
+## ui
 stty stop undef # enable C-s
 
+## prompt
 autoload -Uz vcs_info
 zstyle ':vcs_info:' check-for-changes true
 precmd () { vcs_info }
