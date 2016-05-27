@@ -2,6 +2,7 @@
 export TERM='xterm-256color'
 export EDITOR=emacs
 export GOPATH=$HOME
+export PATH=$PATH:$GOPATH/bin
 
 ## coreutils
 if [ -s $(brew --prefix coreutils) ]; then
