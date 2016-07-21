@@ -56,3 +56,16 @@ SAVEHIST=100000 # on file
 HISTFILE=~/.histfile
 function history-all { history -E 1 }
 alias hag='history-all | grep'
+
+## peco
+function peco-src() {
+    local selected_dir=$(ghq list | peco --query "$LBUFFER")
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${GOPATH}/src/${selected_dir}"
+        zle accept-line
+    fi
+    zle redisplay
+}
+zle -N peco-src
+stty -ixon
+bindkey '^q' peco-src
