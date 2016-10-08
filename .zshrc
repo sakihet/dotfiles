@@ -19,10 +19,6 @@ eval "$(rbenv init -)"
 ## pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
-## nvm
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
-
 alias g=git
 alias l='ls -lF --color'
 alias la='ls -laF --color'
