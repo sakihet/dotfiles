@@ -83,3 +83,7 @@ function peco-select-history() {
 }
 zle -N peco-select-history
 bindkey '^r' peco-select-history
+
+# if (which zprof > /dev/null) ;then
+#     zprof
+# fi
