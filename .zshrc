@@ -83,6 +83,21 @@ function peco-select-history() {
 zle -N peco-select-history
 bindkey '^r' peco-select-history
 
+function peco-branch () {
+    local branch=$(git branch -a | peco | tr -d ' ' | tr -d '*')
+    if [ -n "$branch" ]; then
+        if [ -n "$LBUFFER" ]; then
+            local new_left="${LBUFFER%\ } $branch"
+        else
+            local new_left="$branch"
+        fi
+        BUFFER=${new_left}${RBUFFER}
+        CURSOR=${#new_left}
+    fi
+}
+zle -N peco-branch
+bindkey '^xb' peco-branch
+
 source ~/.zshrc.local
 
 # if (which zprof > /dev/null) ;then
