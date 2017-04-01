@@ -39,6 +39,8 @@ alias safari='open -a safari'
 ## ui
 stty stop undef # enable C-s
 setopt auto_cd
+setopt auto_pushd # cd -<TAB>
+setopt pushd_ignore_dups
 
 ## prompt
 autoload -Uz vcs_info
