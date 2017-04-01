@@ -38,6 +38,7 @@ alias safari='open -a safari'
 
 ## ui
 stty stop undef # enable C-s
+setopt auto_cd
 
 ## prompt
 autoload -Uz vcs_info
