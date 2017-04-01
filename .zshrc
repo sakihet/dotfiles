@@ -98,6 +98,10 @@ function peco-branch () {
 zle -N peco-branch
 bindkey '^xb' peco-branch
 
+# completions
+autoload -U compinit
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 source ~/.zshrc.local
 
 # if (which zprof > /dev/null) ;then
