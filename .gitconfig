@@ -18,6 +18,7 @@
 	co = checkout
 	l = log --graph --decorate --oneline --stat
 	lp = log -p
+	gl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	pl = pull
 [push]
 	default = simple
