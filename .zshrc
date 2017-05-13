@@ -35,6 +35,7 @@ alias here='open .'
 alias chrome='open -a google\ chrome'
 alias firefox='open -a firefox'
 alias safari='open -a safari'
+alias mux='tmuxinator'
 
 ## ui
 stty stop undef # enable C-s
