@@ -47,7 +47,8 @@ autoload -Uz vcs_info
 zstyle ':vcs_info:' check-for-changes true
 precmd () { vcs_info }
 setopt prompt_subst
-PROMPT='%n@%m %~${vcs_info_msg_0_} %# '
+PROMPT='%n@%m %~${vcs_info_msg_0_}
+%# '
 
 ## history
 setopt extended_history
