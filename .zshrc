@@ -104,9 +104,10 @@ zle -N peco-branch
 bindkey '^xb' peco-branch
 
 # completions
+fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit
 compinit
-fpath=(/usr/local/share/zsh-completions $fpath)
+
 
 source ~/.zshrc.local
 
