@@ -1,5 +1,7 @@
 [include]
 	path = ~/.gitconfig.local
+[includeIf "gitdir:~/src/github.com/*/"]
+	path = ~/.gitconfig.local.github
 [core]
 	excludesfile = ~/.gitignore
 [color]
