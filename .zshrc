@@ -5,6 +5,7 @@ export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+export SBT_OPTS="-XX:MaxPermSize=2048M"
 
 ## coreutils
 if [ -s $(brew --prefix coreutils) ]; then
