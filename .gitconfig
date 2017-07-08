@@ -4,6 +4,7 @@
 	path = ~/.gitconfig.local.github
 [core]
 	excludesfile = ~/.gitignore
+	editor = emacs
 [color]
 	ui = auto
 [alias]
