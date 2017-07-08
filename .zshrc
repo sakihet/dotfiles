@@ -61,7 +61,7 @@ zstyle ':vcs_info:' check-for-changes true
 precmd () { vcs_info }
 setopt prompt_subst
 PROMPT='${fg[white]}  $GIT_NAME($GIT_EMAIL)@%m %~${vcs_info_msg_0_}
->${reset_color} '
+>%{${reset_color}%} '
 
 ## history
 setopt extended_history
