@@ -45,13 +45,22 @@ setopt auto_pushd # cd -<TAB>
 setopt pushd_ignore_dups
 
 ## prompt
+function git-names() {
+    GIT_NAME=`git config user.name`
+    GIT_EMAIL=`git config user.email`
+}
+function precmd_git_names() {
+    git-names
+}
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd precmd_git_names
 autoload -Uz colors
 colors
 autoload -Uz vcs_info
 zstyle ':vcs_info:' check-for-changes true
 precmd () { vcs_info }
 setopt prompt_subst
-PROMPT='${fg[white]}%n@%m %~${vcs_info_msg_0_}
+PROMPT='${fg[white]}  $GIT_NAME($GIT_EMAIL)@%m %~${vcs_info_msg_0_}
 >${reset_color} '
 
 ## history
