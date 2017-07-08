@@ -108,9 +108,11 @@ function peco-branch () {
         else
             local new_left="$branch"
         fi
-        BUFFER=${new_left}${RBUFFER}
+        BUFFER="git checkout ${new_left}${RBUFFER}"
         CURSOR=${#new_left}
+        zle accept-line
     fi
+    zle redisplay
 }
 zle -N peco-branch
 bindkey '^xb' peco-branch
