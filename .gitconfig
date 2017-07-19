@@ -2,6 +2,8 @@
 	path = ~/.gitconfig.local
 [includeIf "gitdir:~/src/github.com/*/"]
 	path = ~/.gitconfig.local.github
+[includeIf "gitdir:~/src/bitbucket.org/*/"]
+	path = ~/.gitconfig.local.github
 [core]
 	excludesfile = ~/.gitignore
 	editor = emacs -nw
