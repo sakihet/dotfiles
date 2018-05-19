@@ -20,6 +20,9 @@ eval "$(rbenv init -)"
 ## pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
+## nodenv
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+
 alias g=git
 alias l='ls -lF --color'
 alias la='ls -laF --color'
