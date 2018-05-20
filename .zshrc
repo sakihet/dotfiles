@@ -1,4 +1,6 @@
-## ENV
+###############################################################################
+# ENV
+###############################################################################
 export TERM='xterm-256color'
 export EDITOR=emacs
 export GOPATH=$HOME
@@ -7,22 +9,27 @@ export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export SBT_OPTS="-XX:MaxPermSize=2048M"
 
-## coreutils
+###############################################################################
+# coreutils
+###############################################################################
 if [ -s $(brew --prefix coreutils) ]; then
     PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
     MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
 
-## rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-## pyenv
+###############################################################################
+# *env
+###############################################################################
+# rbenv
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+# pyenv
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-## nodenv
+# nodenv
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 
+###############################################################################
+# alias
+###############################################################################
 alias g=git
 alias l='ls -lF --color'
 alias la='ls -laF --color'
@@ -41,13 +48,17 @@ alias firefox='open -a firefox'
 alias safari='open -a safari'
 alias mux='tmuxinator'
 
-## ui
+###############################################################################
+# ui
+###############################################################################
 stty stop undef # enable C-s
 setopt auto_cd
 setopt auto_pushd # cd -<TAB>
 setopt pushd_ignore_dups
 
-## prompt
+###############################################################################
+# prompt
+###############################################################################
 function git-names() {
     GIT_NAME=`git config user.name`
     GIT_EMAIL=`git config user.email`
@@ -66,7 +77,9 @@ setopt prompt_subst
 PROMPT='${fg[white]}  $GIT_NAME($GIT_EMAIL)@%m %~${vcs_info_msg_0_}
 >%{${reset_color}%} '
 
-## history
+###############################################################################
+# history
+###############################################################################
 setopt extended_history
 setopt share_history
 setopt inc_append_history
@@ -76,7 +89,9 @@ HISTFILE=~/.histfile
 function history-all { history -E 1 }
 alias hag='history-all | grep'
 
-## peco
+###############################################################################
+# peco
+###############################################################################
 function peco-src() {
     local selected_dir=$(ghq list | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
@@ -120,12 +135,16 @@ function peco-branch () {
 zle -N peco-branch
 bindkey '^xb' peco-branch
 
+###############################################################################
 # completions
+###############################################################################
 fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -Uz compinit
 compinit
 
-
+###############################################################################
+# misc
+###############################################################################
 source ~/.zshrc.local
 
 # if (which zprof > /dev/null) ;then
