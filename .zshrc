@@ -7,7 +7,7 @@ export GOPATH=$HOME
 export PATH=$PATH:$GOPATH/bin
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export SBT_OPTS="-XX:MaxPermSize=2048M"
+export SBT_OPTS="-Xms2048M -Xmx2048M"
 
 ###############################################################################
 # coreutils
