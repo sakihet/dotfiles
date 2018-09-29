@@ -47,6 +47,8 @@ alias chrome='open -a google\ chrome'
 alias firefox='open -a firefox'
 alias safari='open -a safari'
 alias mux='tmuxinator'
+alias dkc='docker container'
+alias dki='docker image'
 
 ###############################################################################
 # ui
