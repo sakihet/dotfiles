@@ -44,12 +44,15 @@ alias ta='tmux attach -t' #ta <name>: attach to a session named <name>
 alias tkill='tmux kill-session -t' #tkill <name>: kill a session named <name>
 alias em='emacs -nw'
 alias here='open .'
-alias chrome='open -a google\ chrome'
-alias firefox='open -a firefox'
-alias safari='open -a safari'
 alias mux='tmuxinator'
 alias dkc='docker container'
 alias dki='docker image'
+
+# browsers
+alias chrome='open -a google\ chrome'
+alias edge='open -a Microsoft\ Edge'
+alias firefox='open -a firefox'
+alias safari='open -a safari'
 
 ###############################################################################
 # ui
