@@ -1,0 +1,11 @@
+{
+    "editor.renderWhitespace": "all",
+    "workbench.colorTheme": "Default Light+",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#f7f7f7",
+        "activityBar.foreground": "#000000",
+        "activityBar.border": "#ffffff",
+        "statusBar.background": "#f7f7f7",
+        "statusBar.foreground": "#000000",
+    },
+}
