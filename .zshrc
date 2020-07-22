@@ -8,7 +8,6 @@ export PATH=$PATH:$GOPATH/bin
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export SBT_OPTS="-Xms2048M -Xmx2048M"
-export JAVA_HOME=`/usr/libexec/java_home -v "1.8"`
 
 ###############################################################################
 # coreutils
