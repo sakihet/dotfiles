@@ -150,7 +150,10 @@ compinit
 ###############################################################################
 # misc
 ###############################################################################
-source ~/.zshrc.local
+
+if [ -f ~/.zshrc.local ]; then
+    source ~/.zshrc.local
+fi
 
 # if (which zprof > /dev/null) ;then
 #     zprof
