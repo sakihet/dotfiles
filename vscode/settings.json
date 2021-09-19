@@ -8,4 +8,5 @@
         "statusBar.background": "#f7f7f7",
         "statusBar.foreground": "#000000",
     },
+    "editor.tabSize": 2,
 }
