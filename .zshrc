@@ -12,20 +12,15 @@ export SBT_OPTS="-Xms2048M -Xmx2048M"
 ###############################################################################
 # coreutils
 ###############################################################################
-if [ -s $(brew --prefix coreutils) ]; then
-    PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-    MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-fi
+# if [ -s $(brew --prefix coreutils) ]; then
+#     PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+#     MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+# fi
 
 ###############################################################################
-# *env
+# asdf
 ###############################################################################
-# rbenv
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-# pyenv
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-# nodenv
-if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 
 ###############################################################################
 # alias
@@ -33,11 +28,7 @@ if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 alias g=git
 alias l='ls -lF --color'
 alias la='ls -laF --color'
-alias s=ssh
-alias x=exit
-alias tm=tmux
 alias here='open .'
-alias mux='tmuxinator'
 
 # browsers
 alias chrome='open -a google\ chrome'
@@ -87,62 +78,53 @@ function history-all { history -E 1 }
 alias hag='history-all | grep'
 
 ###############################################################################
+# fzf
+###############################################################################
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
+function fzf-ghq-cd() {
+    local repodir=$(ghq list | fzf -1 +m --layout=reverse)
+    if [ -n "$repodir" ]; then
+        BUFFER="cd $(ghq root)/$repodir"
+        zle accept-line
+    fi
+    zle redisplay
+}
+zle -N fzf-ghq-cd
+stty -ixon
+bindkey '^q' fzf-ghq-cd
+
+###############################################################################
 # peco
 ###############################################################################
-function peco-src() {
-    local selected_dir=$(ghq list | peco --query "$LBUFFER")
-    if [ -n "$selected_dir" ]; then
-        BUFFER="cd ${GOPATH}/src/${selected_dir}"
-        zle accept-line
-    fi
-    zle redisplay
-}
-zle -N peco-src
-stty -ixon
-bindkey '^q' peco-src
-
-function peco-select-history() {
-    typeset tac
-    if which tac > /dev/null; then
-        tac=tac
-    else
-        tac='tail -r'
-    fi
-    BUFFER=$(fc -l -n 1 | eval $tac | peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle redisplay
-}
-zle -N peco-select-history
-bindkey '^r' peco-select-history
-
-function peco-branch () {
-    local branch=$(git branch -a | peco | tr -d ' ' | tr -d '*')
-    if [ -n "$branch" ]; then
-        if [ -n "$LBUFFER" ]; then
-            local new_left="${LBUFFER%\ } $branch"
-        else
-            local new_left="$branch"
-        fi
-        BUFFER="git checkout ${new_left}${RBUFFER}"
-        CURSOR=${#new_left}
-        zle accept-line
-    fi
-    zle redisplay
-}
-zle -N peco-branch
-bindkey '^xb' peco-branch
+# function peco-branch () {
+#     local branch=$(git branch -a | peco | tr -d ' ' | tr -d '*')
+#     if [ -n "$branch" ]; then
+#         if [ -n "$LBUFFER" ]; then
+#             local new_left="${LBUFFER%\ } $branch"
+#         else
+#             local new_left="$branch"
+#         fi
+#         BUFFER="git checkout ${new_left}${RBUFFER}"
+#         CURSOR=${#new_left}
+#         zle accept-line
+#     fi
+#     zle redisplay
+# }
+# zle -N peco-branch
+# bindkey '^xb' peco-branch
 
 ###############################################################################
 # completions
 ###############################################################################
-fpath=(/usr/local/share/zsh-completions $fpath)
-autoload -Uz compinit
-compinit
+# fpath=(/usr/local/share/zsh-completions $fpath)
+# autoload -Uz compinit
+# compinit
 
 ###############################################################################
 # misc
 ###############################################################################
-
 if [ -f ~/.zshrc.local ]; then
     source ~/.zshrc.local
 fi
