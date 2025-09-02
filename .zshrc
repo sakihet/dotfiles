@@ -103,6 +103,16 @@ function fzf-history-select() {
 zle -N fzf-history-select
 bindkey '^r' fzf-history-select
 
+function fzf-switch() {
+    local branches branch
+    branches=$(git --no-pager branch -vv) &&
+    branch=$(echo "$branches" | fzf +m --reverse) &&
+    git switch $(echo "$branch" | awk '{print $1}' | sed "s/.* //")
+    zle accept-line
+}
+zle -N fzf-switch
+bindkey '^xb' fzf-switch
+
 ###############################################################################
 # completions
 ###############################################################################
