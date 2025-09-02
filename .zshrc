@@ -96,26 +96,6 @@ stty -ixon
 bindkey '^q' fzf-ghq-cd
 
 ###############################################################################
-# peco
-###############################################################################
-# function peco-branch () {
-#     local branch=$(git branch -a | peco | tr -d ' ' | tr -d '*')
-#     if [ -n "$branch" ]; then
-#         if [ -n "$LBUFFER" ]; then
-#             local new_left="${LBUFFER%\ } $branch"
-#         else
-#             local new_left="$branch"
-#         fi
-#         BUFFER="git checkout ${new_left}${RBUFFER}"
-#         CURSOR=${#new_left}
-#         zle accept-line
-#     fi
-#     zle redisplay
-# }
-# zle -N peco-branch
-# bindkey '^xb' peco-branch
-
-###############################################################################
 # completions
 ###############################################################################
 # fpath=(/usr/local/share/zsh-completions $fpath)
