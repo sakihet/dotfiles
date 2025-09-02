@@ -95,6 +95,14 @@ zle -N fzf-ghq-cd
 stty -ixon
 bindkey '^q' fzf-ghq-cd
 
+function fzf-history-select() {
+    BUFFER=$(history -n -r 1 | fzf --query "$LBUFFER" --reverse)
+    CURSOR=$#BUFFER
+    zle reset-prompt
+}
+zle -N fzf-history-select
+bindkey '^r' fzf-history-select
+
 ###############################################################################
 # completions
 ###############################################################################
