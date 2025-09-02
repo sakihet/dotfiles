@@ -98,9 +98,11 @@ bindkey '^q' fzf-ghq-cd
 ###############################################################################
 # completions
 ###############################################################################
-# fpath=(/usr/local/share/zsh-completions $fpath)
-# autoload -Uz compinit
-# compinit
+if type brew &>/dev/null; then
+  FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+  autoload -Uz compinit
+  compinit
+fi
 
 ###############################################################################
 # misc
